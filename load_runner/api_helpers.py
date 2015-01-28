@@ -281,7 +281,8 @@ def create_server_dhcp(tenant_id, network_id, name, key_name,
                 #    settings.MANAGEMENT_NET_NAME)
                 #management_ip = server_ips[0]
                 #private_ip = server_ips[1]
-                break
+                if server.status == 'ACTIVE':
+                    break
             except Exception, e:
                 print e.message
                 pass
